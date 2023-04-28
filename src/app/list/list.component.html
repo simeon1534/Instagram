@@ -1,0 +1,5 @@
+<button (click)="getUsers()">Get Users</button>
+<ul *ngFor="let user of users">
+  <li><a routerLink="/user/{{user.user_id}}">{{ user.username}}</a></li>
+
+</ul>
