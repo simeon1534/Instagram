@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-your-profile',
@@ -7,6 +8,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ['./your-profile.component.scss']
 })
 export class YourProfileComponent {
+  public usernameAcc: string = '';
+  public first_nameAcc: string = '';
+  public last_nameAcc: string = '';
 
   public dictToUpload: any ;
   public description : string= '';
@@ -14,10 +18,13 @@ export class YourProfileComponent {
   public myPhotos: any;
   public currentItem: any;
   public slides: any = [];
-  constructor(private http: HttpClient) {
+  constructor(private router: Router,private http: HttpClient) {
   }
 
   ngOnInit(){
+
+    this.getAccInfo()
+
     const myObjectString = localStorage.getItem('loggedUser');
     const myObject: { id: number, username: string } | null = myObjectString ? JSON.parse(myObjectString) : null;
     const headers = new HttpHeaders({
@@ -55,7 +62,23 @@ export class YourProfileComponent {
 
   }
 
-  base64_conversion(){}
+  editInfo() {
+    this.router.navigate(['/update_profile']);
+  }
+  getAccInfo() {
+    let accInfo : any = localStorage.getItem('loggedUser');
+    accInfo = JSON.parse(accInfo)
+
+    if (accInfo) {
+      this.usernameAcc = accInfo.username
+      this.first_nameAcc = accInfo.first_name
+      this.last_nameAcc = accInfo.last_name
+
+    }
+
+
+
+  }
   uploadPhotoDB(dictionaryToDB: any) {
 
 

@@ -9,7 +9,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListComponent } from './components/list/list.component';
 import {AuthguardService} from "./services/authguard.service";
-import { SingleUserComponent } from './components/single-user/single-user.component';
+import { SingleUserComponent } from './components/nav/single-user/single-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NavComponent } from './components/nav/nav.component';
 import { YourProfileComponent } from './components/your-profile/your-profile.component';
@@ -17,6 +17,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { GalleryComponent } from './components/your-profile/gallery/gallery.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {CarouselModule} from "ngx-bootstrap/carousel";
+import { UpdateProfileComponent } from './components/your-profile/update-profile/update-profile.component';
 
 
 
@@ -31,7 +32,8 @@ import {CarouselModule} from "ngx-bootstrap/carousel";
     NavComponent,
     YourProfileComponent,
     FileUploadComponent,
-    GalleryComponent
+    GalleryComponent,
+    UpdateProfileComponent
 
 
   ],

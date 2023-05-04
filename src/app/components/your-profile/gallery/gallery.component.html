@@ -3,11 +3,13 @@
     <link rel="stylesheet" href="gallery.component.scss">
   </head>
   <body>
-  <div style="width: 500px; height: 500px;">
+  <h1>Gallery</h1>
+<!--  height: 100vh can be removed;-->
+  <div style="width: 100%; height: 100vh;">
     <carousel class="my-carousel">
       <slide *ngFor="let photo of slides">
         <div>
-          <li>{{ photo[0] }}</li>
+          <p>{{ photo[0] }}</p>
           <div >
             <img [src]="photo[1]" class="img_in_carousel"  alt="Photo">
             <div class="carousel-caption">

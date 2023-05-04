@@ -39,7 +39,9 @@ export class SignupComponent {
 
   private loggedUser = {
     id:20,
-    username: "dido"
+    username: "dido",
+    first_name: "dido",
+    last_name: "dido"
   }
 
   constructor(private router: Router,
@@ -102,7 +104,9 @@ export class SignupComponent {
                     if (userExistWhenSigned!==undefined) {
                       this.loggedUser = {
                         id: userExistWhenSigned.user_id,
-                        username: userExistWhenSigned.username
+                        username: userExistWhenSigned.username,
+                        first_name: userExistWhenSigned.first_name ?? '' ,
+                        last_name: userExistWhenSigned.last_name ?? ''
                       }
                       localStorage.setItem("accessToken","abc123")
                       localStorage.setItem("loggedUser", JSON.stringify(this.loggedUser));

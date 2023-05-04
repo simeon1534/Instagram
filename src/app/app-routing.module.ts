@@ -5,10 +5,11 @@ import {SignupComponent} from "./components/signup/signup.component";
 import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {ListComponent} from "./components/list/list.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
-import {SingleUserComponent} from "./components/single-user/single-user.component";
+import {SingleUserComponent} from "./components/nav/single-user/single-user.component";
 import {YourProfileComponent} from "./components/your-profile/your-profile.component";
 import {FileUploadComponent} from "./components/file-upload/file-upload.component";
 import {GalleryComponent} from "./components/your-profile/gallery/gallery.component";
+import {UpdateProfileComponent} from "./components/your-profile/update-profile/update-profile.component";
 
 const routes: Routes = [
   {path: "", redirectTo: "/login", pathMatch: "full"},
@@ -17,9 +18,10 @@ const routes: Routes = [
   {path: "user/:user_id", component: SingleUserComponent, canActivate: [AuthenticationGuard]},
   {path: "signup", component: SignupComponent},
   {path: "your_profile", component: YourProfileComponent, canActivate: [AuthenticationGuard]},
+  {path: "update_profile", component: UpdateProfileComponent, canActivate: [AuthenticationGuard]},
   {path: "**", component: NotFoundComponent, canActivate: [AuthenticationGuard]},
   {path: "upload",component:FileUploadComponent, canActivate: [AuthenticationGuard]},
-  {path: "gallery",component:GalleryComponent}
+  {path: "gallery",component:GalleryComponent, canActivate: [AuthenticationGuard]}
 
 
 

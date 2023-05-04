@@ -27,7 +27,9 @@ export class LoginComponent {
   //data for local storage
   private loggedUser = {
     id:20,
-    username: "dido"
+    username: "dido",
+    first_name: "dido",
+    last_name: "dido"
   }
   public token: string = '';
 
@@ -58,7 +60,9 @@ export class LoginComponent {
         if (userExist){
           this.loggedUser = {
             id: userExist.user_id,
-            username: userExist.username
+            username: userExist.username,
+            first_name: userExist.first_name ?? '' ,
+            last_name: userExist.last_name ?? ''
           }
           localStorage.setItem("loggedUser",JSON.stringify(this.loggedUser));
           localStorage.setItem("accessToken","abc123")
