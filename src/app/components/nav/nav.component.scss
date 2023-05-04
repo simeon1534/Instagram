@@ -44,69 +44,41 @@ nav a:hover {
   cursor: pointer;
 }
 
-// OLD CSS
-///* Global styles */
-//body {
-//  background-color: #f0f7fc;
-//  font-family: Arial, sans-serif;
-//}
-//
-///* Navigation styles */
-//nav {
-//  background-color: #007bff;
-//  height: 60px;
-//  line-height: 60px;
-//}
-//
-//nav ul {
-//  list-style: none;
-//  margin: 0;
-//  padding: 0;
-//  text-align: center;
-//}
-//
-//nav li {
-//  display: inline-block;
-//  margin-left: 70px;
-//  position: relative;
-//}
-//
-//nav li:last-child {
-//  margin-right: 0;
-//}
-//
-//nav a {
-//  color: #ffffff;
-//  text-decoration: none;
-//  font-weight: bold;
-//  font-size: 1.2em;
-//  padding: 0 10px;
-//  transition: color 0.3s;
-//}
-//
-//nav a:hover {
-//  color: #f0f7fc;
-//  background-color: #FFD400; //#2944F2
-//}
-//
-//nav a::before {
-//  content: '';
-//  display:block;
-//  height: 5px;
-//  background-color: black;
-//
-//  position: absolute;
-//  top: 0;
-//  width: 100%;
-//}
-//.nav-btn:hover {
-//  background-color: #000;
-//  color: #fff;
-//  border-radius: 5px;
-//  padding: 18px 18px;
-//  cursor: pointer;
-//}
-//
-//.backcolor {
-//  background-color: #2944F2;
-//}
+.sign_out_icon {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-left: 300px;
+}
+
+.search-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.search-button {
+  padding: 5px 10px;
+  background-color: #2691d9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.brand_text {
+  color: whitesmoke;
+  letter-spacing: 0.2em;
+  margin-left: 60px;
+  font-size: 30px;
+
+}
+.nav-btn {
+  margin-left: 20px;
+  font-size: 20px;
+}

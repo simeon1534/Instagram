@@ -9,17 +9,22 @@
 
 <div>
   <nav class="navbar">
+
+    <h4 class="brand_text">InstaVisual</h4>
     <ul >
+
+
       <span ><li><a (click)="redirectToHome()"  class="nav-btn">Home</a></li></span>
       <li><a (click)="redirectToAbout()" class="nav-btn">About</a></li>
       <li><a (click)="redirectToProfile()"  class="nav-btn">Your Profile</a></li>
-      <li>
-        <form>
-          <input type="text" placeholder="Search..." [(ngModel)]="searchText">
-          <button (click)="search()" type="submit">Search</button>
-        </form>
-      </li>
+
     </ul>
+      <form class="search-form">
+        <input type="text" placeholder="Search for people" [(ngModel)]="searchText" class="search-input">
+        <button (click)="search()" type="submit" class="search-button">Search</button>
+      </form>
+        <img (click)="sign_out()" class="sign_out_icon" src="../../../assets/logout.png" alt="My Image">
+
   </nav>
 </div>
 </body>

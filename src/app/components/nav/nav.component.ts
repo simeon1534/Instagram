@@ -37,4 +37,13 @@ export class NavComponent {
   redirectToAbout() {
     this.router.navigate(['/users']);
   }
+
+  sign_out() {
+    if (window.confirm("Are you sure you want to sign out?")) {
+      console.log("SIGNED OUT")
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    }
+
+  }
 }
