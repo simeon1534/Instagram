@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {AuthguardService} from "../../services/authguard.service";
 
 type Users = {
   user_id: number,
@@ -24,36 +25,49 @@ export class LoginComponent {
   public password_input: string = '';
 
   //data for local storage
-  private user = {
+  private loggedUser = {
     id:20,
     username: "dido"
   }
   public token: string = '';
 
-  constructor(private router: Router,private http: HttpClient) {
+  constructor(private router: Router,private http: HttpClient, private authService: AuthguardService) {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem("loggedUser")) {
+    if (this.authService.userExists()) {
       this.router.navigateByUrl("/users")
     }
   }
 
-
+  goToSignUp() {
+    this.router.navigate(['/signup']);
+  }
   login() {
-    this.http.get("http://localhost:500/user_api/users")
+    console.log("CHECK")
+
+    const headers = new HttpHeaders({
+      Authorization: "abc123"
+    });
+
+    this.http.get("http://localhost:500/user_api/users",{headers})
       .subscribe((res) => {
         this.users = res as Users[];
         const userExist = this.users.find(u => u.email == this.email_input && u.password == this.password_input)
-        console.log(userExist)
+
         if (userExist){
-          this.user = {
+          this.loggedUser = {
             id: userExist.user_id,
             username: userExist.username
           }
-          localStorage.setItem("loggedUser",JSON.stringify(this.user));
+          localStorage.setItem("loggedUser",JSON.stringify(this.loggedUser));
+          localStorage.setItem("accessToken","abc123")
+          this.authService.isLoggedIn.next(true);
 
           this.router.navigateByUrl("/users")
+        }
+        else {
+          alert("Wrong credentials")
         }
         })
 

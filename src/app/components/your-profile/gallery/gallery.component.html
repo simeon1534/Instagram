@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="gallery.component.scss">
+  </head>
+  <body>
+  <div style="width: 500px; height: 500px;">
+    <carousel class="my-carousel">
+      <slide *ngFor="let photo of slides">
+        <div>
+          <li>{{ photo[0] }}</li>
+          <div >
+            <img [src]="photo[1]" class="img_in_carousel"  alt="Photo">
+            <div class="carousel-caption">
+              <h4>{{photo[0]}}</h4>
+            </div>
+          </div>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  </body>
+</html>

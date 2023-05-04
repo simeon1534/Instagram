@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TITLE</title>
+  <link rel="stylesheet" href="your-profile.component.scss">
+</head>
+<body>
+<div class="container">
+  <h1>Upload Your Images</h1>
+  <form>
+    <label for="description">Description:</label>
+    <textarea type="text" id="description" name="description" rows="4" cols="50" [(ngModel)]="description"></textarea>
+
+    <label for="fileInput">Choose an image to upload:</label>
+    <input type="file" (change)="getFile($event)" id="fileInput" accept="image/*">
+
+    <button type="button" (click)="submit()">Upload</button>
+  </form>
+
+  <div class="gallery">
+    <app-gallery [slides]="slides"></app-gallery>
+  </div>
+</div>
+</body>
+</html>
+
+
+<!--<html>-->
+<!--<head>-->
+<!--  <title>TITLE</title>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--  <label for="description">Description:</label>-->
+<!--  <textarea type="text" id="description" name="description" rows="4" cols="50" [(ngModel)]="description"></textarea>-->
+
+<!--  <input type="file" (change)="getFile($event)" id="fileInput" accept="image/*">-->
+
+<!--  <button type="button" (click)="submit()">Submit</button>-->
+<!--  <br>-->
+<!--  <app-gallery  [slides]="slides"></app-gallery>-->
+<!--</body>-->
+<!--</html>-->
