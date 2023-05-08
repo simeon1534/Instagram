@@ -18,6 +18,9 @@ import { GalleryComponent } from './components/your-profile/gallery/gallery.comp
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {CarouselModule} from "ngx-bootstrap/carousel";
 import { UpdateProfileComponent } from './components/your-profile/update-profile/update-profile.component';
+import { CommonModule } from '@angular/common';
+import { GallerySingleUserComponent } from './components/nav/single-user/gallery-single-user/gallery-single-user.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 
@@ -33,7 +36,10 @@ import { UpdateProfileComponent } from './components/your-profile/update-profile
     YourProfileComponent,
     FileUploadComponent,
     GalleryComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    GallerySingleUserComponent,
+    AboutComponent,
+
 
 
   ],
@@ -45,7 +51,8 @@ import { UpdateProfileComponent } from './components/your-profile/update-profile
     ReactiveFormsModule,
     SlickCarouselModule,
     CarouselModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    CommonModule
   ],
   providers: [AuthguardService],
   bootstrap: [AppComponent]

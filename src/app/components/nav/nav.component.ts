@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 
 @Component({
@@ -9,20 +9,27 @@ import {HttpClient,HttpHeaders} from "@angular/common/http";
 })
 export class NavComponent {
 
+  public searchText: string = '';
+  public currentUser: any;
+
   constructor(private router: Router, private http: HttpClient) {
   }
 
-  public searchText: any;
-  public currentUser: any;
+
   search() {
 
     const headers = new HttpHeaders({
       Authorization: "abc123"
     });
-
+    console.log(this.searchText)
     this.http.get(`http://localhost:500/user_api/username/${this.searchText}`, {headers})
       .subscribe((res) => {
         this.currentUser = res;
+        if (this.currentUser.length !== 0)  {
+          const userId = this.currentUser[0].user_id
+
+          this.router.navigate([`/user/${userId}`]);
+        }
 
       })
   }
@@ -35,7 +42,7 @@ export class NavComponent {
   }
 
   redirectToAbout() {
-    this.router.navigate(['/users']);
+    this.router.navigate(['/about']);
   }
 
   sign_out() {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {FormGroup,FormBuilder,Validator} from "@angular/forms";
+import {AuthguardService} from "../../services/authguard.service";
 
 type Users = {
   user_id: number,
@@ -46,7 +47,8 @@ export class SignupComponent {
 
   constructor(private router: Router,
               private http: HttpClient,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private authService: AuthguardService) {
 
     this.userForm=this.formBuilder.group({
       username: "",
@@ -59,7 +61,7 @@ export class SignupComponent {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem("loggedUser")) {
+    if (this.authService.userExists()) {
       this.router.navigateByUrl("/users")
     }
   }

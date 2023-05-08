@@ -65,6 +65,26 @@ export class YourProfileComponent {
   editInfo() {
     this.router.navigate(['/update_profile']);
   }
+
+  delete() {
+    if (window.confirm("Are you sure you want to delete your profile?")) {
+      console.log("DELETED")
+
+      const headers = new HttpHeaders({
+        Authorization: "abc123"
+      });
+
+      let accInfo : any = localStorage.getItem('loggedUser');
+      accInfo = JSON.parse(accInfo)
+
+      this.http.delete(`http://localhost:500/user_api/user/delete/${accInfo.id}`, {headers})
+        .subscribe((res) => {
+          console.log(res)
+        })
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    }
+  }
   getAccInfo() {
     let accInfo : any = localStorage.getItem('loggedUser');
     accInfo = JSON.parse(accInfo)
@@ -138,6 +158,10 @@ export class YourProfileComponent {
             this.dictToUpload["user_id"] = myId
             this.dictToUpload["photo_description"] = this.description
             this.dictToUpload["photo_base64"] = this.file
+
+
+
+
 
             // POST to database
             console.log(this.dictToUpload["photo_description"])
